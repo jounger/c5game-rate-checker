@@ -1,0 +1,29 @@
+{
+    "name": "c5game rate checker",
+    "description": "App to check rate of order and sell on the steam market.",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": [
+        "tabs",
+        "storage",
+        "http://*/",
+        "https://*/"
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_title": "c5game rate checker",
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+        "js": ["contentscript.js"],
+        "matches": [
+            "https://www.c5game.com/csgo/default/result.html**",
+            "https://www.c5game.com/dota.html**"
+        ]
+    }],
+    "web_accessible_resources": ["script.js"]
+}
